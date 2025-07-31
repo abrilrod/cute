@@ -1,0 +1,229 @@
+ @import url(https://fonts.googleapis.com/css?family=Lato:300italic);
+
+      html,
+      body {
+        width: 100%;
+        height: 100%;
+        scrollbar-width: none;
+        overflow: hidden;
+      }
+
+      body {
+        background: linear-gradient(135deg, #fce1e4, #f9d5db);
+      }
+
+      .name{
+        font-size: 1.4rem;
+        font-weight: 600;
+      }
+
+      #cake {
+
+        display: block;
+        position: relative;
+        margin: -10em auto 0 auto;
+      }
+
+      .cake {
+        background: #ffffff;
+        border-radius: 10px;
+        position: absolute;
+        top: 228px;
+        left: 50%;
+        margin-left: -2.4px;
+        margin-top: -8.33333333px;
+        width: 5px;
+        height: 35px;
+        transform: translateY(-300px);
+        backface-visibility: hidden;
+        animation: in 500ms 6s ease-out forwards;
+      }
+      .cake:after,
+      .cake:before {
+        background: rgba(255, 0, 0, 0.4);
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 2.22222222px;
+      }
+      .cake:after {
+        top: 25%;
+        left: 0;
+      }
+      .cake:before {
+        top: 45%;
+        left: 0;
+      }
+
+      .fuego {
+        border-radius: 100%;
+        position: absolute;
+        top: -20px;
+        left: 50%;
+        margin-left: -2.6px;
+        width: 6.66666667px;
+        height: 18px;
+      }
+      .fuego:nth-child(1) {
+        animation: fuego 2s 6.5s infinite;
+      }
+      .fuego:nth-child(2) {
+        animation: fuego 1.5s 6.5s infinite;
+      }
+      .fuego:nth-child(3) {
+        animation: fuego 1s 6.5s infinite;
+      }
+      .fuego:nth-child(4) {
+        animation: fuego 0.5s 6.5s infinite;
+      }
+      .fuego:nth-child(5) {
+        animation: fuego 0.2s 6.5s infinite;
+      }
+
+
+      @keyframes fuego {
+        0%, 100% {
+          background: rgba(254, 248, 97, 0.5);
+          box-shadow: 0 0 40px 10px rgba(248, 233, 209, 0.2);
+          transform: translateY(0) scale(1);
+        }
+        50% {
+          background: rgba(255, 50, 0, 0.1);
+          box-shadow: 0 0 40px 20px rgba(248, 233, 209, 0.2);
+          transform: translateY(-20px) scale(0);
+        }
+      }
+
+      @keyframes in {
+        to {
+          transform: translateY(0);
+        }
+      }
+
+      .text {
+        color: #a85a6a;
+        text-shadow: 1px 1px 2px #f7c7d3;
+        font-family: 'Lato', sans-serif;
+        font-weight: 300;
+        text-align: center;
+        h1 {
+            font-style:italic;
+          font-size: 2.5rem;
+        }
+        span {
+            font-style: normal;
+        }
+      }
+
+      #hearts-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  overflow: visible;
+  z-index: 5;
+}
+
+/* Corazones básicos */
+.heart {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  background: #f28ab2;
+  transform: rotate(-45deg);
+  animation-timing-function: linear;
+  opacity: 0.85;
+  filter: drop-shadow(0 0 1px #d84e79);
+  border-radius: 3px;
+  animation-name: floatUp;
+  animation-fill-mode: forwards;
+}
+
+.heart::before,
+.heart::after {
+  content: "";
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  background: #f28ab2;
+  border-radius: 50%;
+}
+
+.heart::before {
+  top: -9px;
+  left: 0;
+}
+
+.heart::after {
+  top: 0;
+  left: 9px;
+}
+
+/* Corazones rosa pastel */
+.heart.pastel {
+  background: #f9c1d9;
+  filter: drop-shadow(0 0 1.5px #f48fb1);
+}
+
+.heart.pastel::before,
+.heart.pastel::after {
+  background: #f9c1d9;
+}
+
+/* Corazones blancos */
+.heart.white {
+  background: #fff0f5;
+  filter: drop-shadow(0 0 1.5px #ffc0cb);
+}
+
+.heart.white::before,
+.heart.white::after {
+  background: #fff0f5;
+}
+
+/* Animación de subida y leve desplazamiento horizontal */
+@keyframes floatUp {
+  0% {
+    opacity: 0;
+    transform: translateY(0) rotate(-45deg) scale(0.8);
+  }
+  10% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-250px) translateX(var(--x-move)) rotate(-45deg) scale(1.2);
+  }
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    margin: 7rem;
+}
+
+.button-container button 
+{
+    background-color: #f28ab2;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 3rem;
+    cursor: pointer;
+    font-size: 1.2rem;
+    font-family: 'Lato', sans-serif;
+    font-weight: 600;
+    text-align: center;
+}
+
+.button-container button:hover 
+{
+    background-color: #c55b7e;
+}
+
+.button-container button a {
+    text-decoration: none;
+    padding: 1rem;
+    color: #fff0f3;
+}
